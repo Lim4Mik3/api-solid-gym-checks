@@ -31,12 +31,12 @@ describe('Get User Checkins Metrics Use Case', () => {
       password_hash: await hash('123456', 8),
     });
 
-    const { checkInsCount } = await sut.execute({
+    const { metrics: metrics1 } = await sut.execute({
       userId: _USER_ID,
     });
 
-    expect(checkInsCount).toBeTypeOf('number');
-    expect(checkInsCount).toBe(0);
+    expect(metrics1).toBeTypeOf('number');
+    expect(metrics1).toBe(0);
 
     // Make some checkins and test again
 
@@ -50,12 +50,12 @@ describe('Get User Checkins Metrics Use Case', () => {
       user_id: _USER_ID,
     });
 
-    const { checkInsCount: checkInsCount2 } = await sut.execute({
+    const { metrics: metrics2 } = await sut.execute({
       userId: _USER_ID,
     });
 
-    expect(checkInsCount2).toBeTypeOf('number');
-    expect(checkInsCount2).toBe(2);
+    expect(metrics2).toBeTypeOf('number');
+    expect(metrics2).toBe(2);
   });
 
   it('should be able get all user checkin metrics correctly with 2 checkins created', async () => {
@@ -78,12 +78,12 @@ describe('Get User Checkins Metrics Use Case', () => {
       user_id: _USER_ID,
     });
 
-    const { checkInsCount: checkInsCount2 } = await sut.execute({
+    const { metrics } = await sut.execute({
       userId: _USER_ID,
     });
 
-    expect(checkInsCount2).toBeTypeOf('number');
-    expect(checkInsCount2).toBe(2);
+    expect(metrics).toBeTypeOf('number');
+    expect(metrics).toBe(2);
   });
 
   it('should not be able get checkIn metrics to a non exists user', async () => {

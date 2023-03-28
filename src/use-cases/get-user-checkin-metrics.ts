@@ -7,7 +7,7 @@ interface GetUserCheckInsMetricsUseCaseRequest {
 }
 
 interface GetUserCheckInsMetricsUseCaseResponse {
-  checkInsCount: number;
+  metrics: number;
 }
 
 export class GetUserCheckInsMetricsUseCase {
@@ -25,12 +25,12 @@ export class GetUserCheckInsMetricsUseCase {
       throw new ResourceNotFoundError();
     }
 
-    const totalCheckInMetric = await this.checkInsRepository.countByUseId(
+    const totalCheckInsCount = await this.checkInsRepository.countByUseId(
       userId
     );
 
     return {
-      checkInsCount: totalCheckInMetric,
+      metrics: totalCheckInsCount,
     };
   }
 }

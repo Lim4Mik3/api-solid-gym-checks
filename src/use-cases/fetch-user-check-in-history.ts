@@ -9,13 +9,13 @@ export class FetchUserCheckInHistoryUseCase {
   constructor(private checkInsRepository: CheckInsRepository) {}
 
   async execute({ userId, page }: FetchUserCheckInHistoryUseCaseRequest) {
-    const checkIns = await this.checkInsRepository.findManyByUserId(
+    const history = await this.checkInsRepository.findManyByUserId(
       userId,
       page
     );
 
     return {
-      checkIns,
+      history,
     };
   }
 }

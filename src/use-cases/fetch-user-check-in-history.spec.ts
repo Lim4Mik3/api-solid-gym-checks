@@ -23,13 +23,13 @@ describe('Fetch User Check Ins History Use Case', () => {
       user_id: 'user-01',
     });
 
-    const { checkIns } = await sut.execute({
+    const { history } = await sut.execute({
       userId: 'user-01',
       page: 1,
     });
 
-    expect(checkIns).toHaveLength(2);
-    expect(checkIns).toEqual([
+    expect(history).toHaveLength(2);
+    expect(history).toEqual([
       expect.objectContaining({ gym_id: 'gym-01' }),
       expect.objectContaining({ gym_id: 'gym-02' }),
     ]);
@@ -43,13 +43,13 @@ describe('Fetch User Check Ins History Use Case', () => {
       });
     }
 
-    const { checkIns } = await sut.execute({
+    const { history } = await sut.execute({
       userId: 'user-01',
       page: 2,
     });
 
-    expect(checkIns).toHaveLength(2);
-    expect(checkIns).toEqual([
+    expect(history).toHaveLength(2);
+    expect(history).toEqual([
       expect.objectContaining({ gym_id: 'gym-21' }),
       expect.objectContaining({ gym_id: 'gym-22' }),
     ]);
