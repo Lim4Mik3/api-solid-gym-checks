@@ -13,7 +13,7 @@ describe('Create Gym Controller (e2e)', () => {
   });
 
   it('should be able create a gym correctly', async () => {
-    const { authToken } = await createAuthenticateUserToTests(app);
+    const { authToken } = await createAuthenticateUserToTests(app, true);
 
     const httpAgent = request.agent(app.server);
 

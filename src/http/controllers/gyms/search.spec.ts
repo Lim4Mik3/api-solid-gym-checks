@@ -13,7 +13,7 @@ describe('Fetch Search Gyms (e2e)', () => {
   });
 
   it('should be able fetcg search gyms by query param', async () => {
-    const { authToken } = await createAuthenticateUserToTests(app);
+    const { authToken } = await createAuthenticateUserToTests(app, true);
 
     const httpAgent = request.agent(app.server);
 

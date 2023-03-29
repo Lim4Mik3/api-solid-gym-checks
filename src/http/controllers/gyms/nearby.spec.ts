@@ -13,7 +13,7 @@ describe('Fetch Nearby Gyms (e2e)', () => {
   });
 
   it('should be able fetch nearby gyms', async () => {
-    const { authToken } = await createAuthenticateUserToTests(app);
+    const { authToken } = await createAuthenticateUserToTests(app, true);
 
     const httpAgent = request.agent(app.server);
 

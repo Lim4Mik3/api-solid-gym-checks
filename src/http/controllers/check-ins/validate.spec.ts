@@ -14,7 +14,7 @@ describe('Validate Check-In Controller (e2e)', () => {
   });
 
   it('should be able to validate a check-in', async () => {
-    const { authToken } = await createAuthenticateUserToTests(app);
+    const { authToken } = await createAuthenticateUserToTests(app, true);
 
     const httpAgent = request.agent(app.server);
 
